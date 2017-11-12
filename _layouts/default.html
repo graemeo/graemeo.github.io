@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="{{ site.lang | default: "en-US" }}">
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
 
   </head>
 
@@ -12,29 +12,24 @@
 
     <header>
       <div class="container">
-        <h1>{ graeme_o }</h1>
+        <h1>{{ site.title | default: site.github.repository_name }}</h1>
 
       </div>
     </header>
 
     <div class="container">
       <section id="main_content">
-        
-
+        {{ content }}
       </section>
     </div>
 
     <div>
       <ul>
-        
+        {% for post in site.posts %}
           <li>
-            <a href="/2017/11/12/the-rise-of-devops-engineer.html">The DevOps Engineer Role</a>
+            <a href="{{ post.url }}">{{ post.title }}</a>
           </li>
-        
-          <li>
-            <a href="/2017/11/12/my-first-post.html">My First Post</a>
-          </li>
-        
+        {% endfor %}
       </ul>
     </div>
 
@@ -42,8 +37,7 @@
 
     <footer>
        <div class="container">
-         <h3>Just a simple blog to experiment Github Pages with Jekyll...
-</h3>
+         <h3>{{ site.description | default: site.github.project_tagline }}</h3>
        </div>
     </footer>
   </body>

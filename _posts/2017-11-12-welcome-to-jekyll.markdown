@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default 
 title:  "Welcome to Jekyll!"
 date:   2017-11-12 14:54:56 +1100
 published: false
