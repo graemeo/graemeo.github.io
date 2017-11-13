@@ -18,13 +18,17 @@
     </header>
 
     <div class="container">
+      <div style="float: left; width: 70%">
+   
       <section id="main_content">
         {{ content }}
       </section>
+      </div>
     </div>
 
     <div>
       <ul>
+      </section>
         {% for post in site.posts %}
           <li>
             <a href="{{ post.url }}">{{ post.title }}</a>
