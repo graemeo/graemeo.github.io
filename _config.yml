@@ -1,15 +1,14 @@
 title: "{ graeme_o }"
-email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
-  Just a simple blog to experiment Github Pages with Jekyll...
+  It's not about how good you can code,
+  it's about how good you can work with others to code...
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-#twitter_username: jekyllrb
 github_username:  graemeo
-
+github_url: https://github.com/
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-hacker
+theme: jekyll-theme-midnight
 gems:
   - jekyll-feed
 exclude:
