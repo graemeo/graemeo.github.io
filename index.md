@@ -2,4 +2,5 @@
 layout: default
 ---
 
-testing
+I'm a Software / DevOps Engineer based in Sydney, Australia.
+
