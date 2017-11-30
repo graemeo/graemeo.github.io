@@ -3,16 +3,18 @@ layout: default
 title: Unit Testing with Python
 ---
 
-# Unit Testing with Python
+# To Unit Test or Not to Unit Test with Python
 
-*TODO*
-- background
-- what is this based on? i.e. which Python version?
+
+For the past 12 months, I have been involved a lot more in writing and maintaining Python scripts. What I have noticed so far which I don't feel like we are doing enough is writing unit tests. We may not written a full blown application using Python, but I don't see why we can't include unit tests for automation scripts written in Python. What I hope to share with you in this post, is the basics of setting up unit tests in Python.
+
+There are a few other test frameworks out there which we can use (not something I have experimented yet), however given that Python also ships with unittest module (since Python 2.1 if I'm not mistaken) I thought I should start by playing around with Python's unittest first. Furthermore, the example I have prepared in this post is built on Python 2.7 environment. If you are using an older version of Python (prior to 2.7), you might consider taking a look at unittest2 module (I'll post something about this some time soon).
+
 
 
 ## Just before we start...
 
-Let's define and setup a couple of things first before we get started. First, we are going to come up with our own requirements just to that we can use it as a guide to assist with the tutorial. Let's assume we need to build a calculator service to which one of the functions is to allow us to sum two numbers. Secondly, create the files and folders based on the sample structure below:
+Let's define and setup a couple of things first. Firstly, we are going to come up with our own requirements just to that we can use it as a guide to assist with the tutorial. Let's assume we need to build a calculator service to which one of the functions is to allow us to sum two numbers. Secondly, create the files and folders based on the sample structure below:
 
 ```bash
 my-project/
@@ -28,12 +30,11 @@ my-project/
 ```
 
 
-
 ## Let's get started
 
 In the previous section, you would have created a few empty Python files.
 
-In calculator.py, it would look something like as a starting point:
+In **calculator.py**, it would look something like this as a starting point:
 
 
 ```python
@@ -41,7 +42,7 @@ class Calculator:
 
 ```
 
-Then tests/calculator_test.py would look something like:
+Then **tests/calculator_test.py** would look something like:
 
 ```python
 import unittest
@@ -50,11 +51,9 @@ class CalculatorTest(unittest.TestCase):
 
 ```
 
-*TODO*
-- what is unittest.TestCase for
+Ensure that your test class imports Python's unittest module and the class is subclassed to unittest's TestCase so that you can access the goodness of unittest module.
 
-
-You can leave the tests/__init__.py file blank. This is just to let Python know to treat the tests folder as a package. Now, before I show you how the test case would look like, let's consider a few points:
+You can leave the **tests/\_\_init\_\_.py** file blank. This is just to let Python know to treat the tests folder as a package. Now, before I show you how the test case would look like, let's consider a few points:
 - We'll name our test case as test_should_sum_two_numbers_accurately
 - We'll define some test data
 - We'll call calculator function to add two numbers - let's call it add_two_numbers
@@ -93,12 +92,14 @@ def add_two_numbers(self, first, second):
 
 Running the test (see Executing tests section below on how to execute tests) above will fail as the expected and actual results do not match - which is fine! This is when we'll fix the test by adding a bit of code, run the test and repeat until we are satisfied with the requirement.
 
-A few extra points to note from the above test case:
-- Always ensure that your test case starts with "test" - that way unittest will recognise this as a test case
-- Consider using a narrative when writing your test case such as "given, when, then" so to help you define:
-  - Your test context / test data in the given section
-  - What action(s) that need to be carried out in the when section
-  - Outcome of the test in the then section
+> A few extra points to note from the above test case:
+> - Always ensure that your test case starts with "test" - that way unittest will recognise this as a test case
+>
+> - Consider using a narrative when writing your test case such as "given, when, then" so to help you define:
+>   - Your test context / test data in the given section
+>   - What action(s) that need to be carried out in the when section
+>   - Outcome of the test in the then section
+> - assertEqual is just one of the few assertions - refer to [Python's unittest documentation](https://docs.python.org/2/library/unittest.html#unittest.TestCase) for more assertions
 
 
 ## Executing tests
@@ -111,7 +112,7 @@ To run a suite of tests, you can use unittest's discover. The execution through 
 python -m unittest discover tests -p "*_test.py" -v
 ```
 
-The "tests" value instructs unittest to look at this particular folder whilst the "-p" option instructs unittest to run the test(s)r matching certain filename patterns. To enable verbosity output, you just add "-v" into the command.
+**tests** refers to the folder to which unittest should start executing the tests from, whilsts **-p** option instructs unittest to execute the test(s) matching certain filename patterns. To enable verbosity output, you just need to add **-v** into the command.
 
 If you do not want to run a suite of tests within a particular folder, you can execute tests based on a specific module:
 
@@ -119,24 +120,27 @@ If you do not want to run a suite of tests within a particular folder, you can e
 python -m unittest -v tests.calculator_test
 ```
 
-There may be situations where you would just run a specific test case, although not something I would recommend. Mainly because, when I made a change to a code, I want to make sure that at my tests are still passing. However, if for whatever reasons you still need to execute just a specific test case, you could execute it like the following:
+To execute a specific test case, you could execute it like the following example:
+
 
 ```bash
 python -m unittest tests.calculator_test.CalculatorTest.test_should_sum_two_numbers_accurately
 ```
 
-## Some other extra stuff
+> Executing just a specifc test case is not something I'm personally fond with; this is mainly because, when I make a change to a code, I wan't to ensure that ALL my tests are still passing. 
+
+## Preparation and / or clean up tasks
 
 There are times when we need to perform a set of preparations before we execute our test case and / or clean up after we execute out test case - this refers test fixtures.
 
-To prepare a set of actions prior to executing a test case, you define a method called setUp just like the following:
+To prepare a set of actions prior to executing a test case, you define a method called **setUp** just like the following:
 
 ```python
 def setUp(self):
    print "Preparing a set of instructions before test case gets executed.."
 ```
 
-There may be times you need to clean up tasks and the end of every test cases:
+There may be times you need to clean up tasks and the end of every test cases, this is when you define the **tearDown** method like the following:
 
 ```python
 def tearDown(self):
@@ -144,3 +148,21 @@ def tearDown(self):
 
 ```
 
+## Ignoring tests
+
+If you need to ignore test, refer to the following example:
+
+```python
+@unittest.skip("Any comments, perhaps reasoning behind skipping the test?")
+def test_ignore_me(self):
+   print "This test doesn't do anything"
+```
+
+You will need to annotate the test case you are interested in ignoring by including **@unittest.skip("Some comments")**. You can choose to put  meaningful comment as to why you have decided to ignore the test case. 
+
+> Personally, I would strongly discourage to use this feature - mainly because this can lead up to behaviour of ignoring bunch of broken tests without putting effort to fixing it. If a test does not add any value, just simple remove it from your test class. If a test is broken, try to fix it right away rather than ignoring it for later or for someone else to fix.
+
+
+## To conclude...
+
+What I have included in this post is just a very basic tutorial to get you started. Based on this, you should have enough setup to start building up from then on. If however, you need a complete reference to a working example, you can also check out my sample project here [Python Tests](https://github.com/graemeo/python-tests)
