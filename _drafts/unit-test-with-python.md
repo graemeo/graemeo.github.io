@@ -7,7 +7,7 @@ categories: Python
 # To Unit Test or Not to Unit Test
 
 
-For the past 12 months, I have been involved a lot more in writing and maintaining Python scripts. What I have noticed so far which I don't feel like we are doing enough is writing unit tests. We may not written a full blown application using Python, but I don't see why we can't include unit tests for automation scripts written in Python. What I hope to share with you in this post, is the basics of setting up unit tests in Python.
+For the past 12 months, I have been involved a lot more in writing and maintaining Python scripts. What I have noticed so far which I don't feel like we are doing enough is writing unit tests. We may not have written a full blown application using Python, but I don't see why we can't include unit tests for automation scripts written in Python. What I hope to share with you in this post, is the basics of setting up unit tests in Python.
 
 There are a few other test frameworks out there which we can use (not something I have experimented yet), however given that Python also ships with unittest module (since Python 2.1 if I'm not mistaken) I thought I should start by playing around with Python's unittest first. Furthermore, the example I have prepared in this post is built on Python 2.7 environment. If you are using an older version of Python (prior to 2.7), you might consider taking a look at unittest2 module (I'll post something about this some time soon).
 
