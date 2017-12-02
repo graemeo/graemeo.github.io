@@ -14,5 +14,5 @@ I'm a Software / DevOps Engineer based in Sydney, Australia. A father of two and
 - AWS
 - Spring
 
-My blog will be based on my personal opinion, and what you see in my blog tutorials are something I wish to share based on my learning. I don't normally blog but I thought to myself that by doing this will motivate me further to learning. That said, feedback is always welcome! I hope you will enjoy my blog as much as I enjoy preparing it!
+Majority of my posts will be based on my personal opinion as well as tutorials which I hope to share based on what I have learned. I don't normally blog, but this is one of the many ways that motivates me in learning. That being said, feedback is always welcome, and I hope you will enjoy my posts as much as I enjoy preparing it!
 
