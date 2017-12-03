@@ -8,15 +8,15 @@ categories: Python
 # To Unit Test or Not to Unit Test
 
 
-For the past 12 months, I have been involved a lot more in writing and maintaining Python scripts. What I have noticed so far which I don't feel like we are doing enough is writing unit tests. We may not have written a full blown application using Python, but I don't see why we can't include unit tests for automation scripts written in Python. What I hope to share with you in this post, is the basics of setting up unit tests in Python.
+For the past 12 months, I have been involved a lot more in writing and maintaining Python scripts. What I have noticed so far, which I don't feel like we are doing enough, is writing unit tests. We may not have written a full blown application using Python, but I don't see why we can't include unit tests for automation scripts written in Python. What I hope to share with you in this post, is the basics of setting up unit tests in Python.
 
-There are a few other test frameworks out there which we can use (not something I have experimented yet), however given that Python also ships with unittest module (since Python 2.1 if I'm not mistaken) I thought I should start by playing around with Python's unittest first. Furthermore, the example I have prepared in this post is built on Python 2.7 environment. If you are using an older version of Python (prior to 2.7), you might consider taking a look at unittest2 module (I'll post something about this some time soon).
+There are a few test frameworks out there which we can use (not something I have experimented yet), however given that Python also ships with unittest module (since Python 2.1 if I'm not mistaken) I thought I should start by playing around with Python's unittest first. Furthermore, the example I have prepared in this post is built on Python 2.7 environment. If you are using an older version of Python (prior to 2.7), you might consider taking a look at unittest2 module (I'll post something about this some time soon).
 
 
 
 ## Just before we start...
 
-Let's define and setup a couple of things first. Firstly, we are going to come up with our own requirements just to that we can use it as a guide to assist with the tutorial. Let's assume we need to build a calculator service to which one of the functions is to allow us to sum two numbers. Secondly, create the files and folders based on the sample structure below:
+Let's define and setup a couple of things. Firstly, we are going to come up with our own requirements just so that we can use it as a guide to assist with the tutorial. Let's assume we need to build a calculator service to which one of the functions is to allow us to sum two numbers. Secondly, create the files and folders based on the sample structure below:
 
 ```bash
 my-project/
@@ -129,7 +129,7 @@ To execute a specific test case, you could execute it like the following example
 python -m unittest tests.calculator_test.CalculatorTest.test_should_sum_two_numbers_accurately
 ```
 
-> Executing just a specifc test case is not something I'm personally fond with; this is mainly because, when I make a change to a code, I wan't to ensure that ALL my tests are still passing. 
+> Executing just a specifc test case is not something I'm personally fond of; this is mainly because, when I make a change to a code, I wan't to ensure that ALL my tests are still passing. 
 
 ## Preparation and / or clean up tasks
 
