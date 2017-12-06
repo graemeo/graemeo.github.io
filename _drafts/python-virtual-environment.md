@@ -19,16 +19,40 @@ I am going to assume that you have pip already installed on your machine.
 
 To install virtualenv, all you need to do is to install virtualenv using pip:
 
-```python
+```bash
 pip install virtualenv
 ```
 
 Once the installation is complete, just simply verify that virtualenv is listed as one of the modules installed:
 
-```python
+```bash
 pip list
 ```
 
 # The First Virtual Environment
+
+Let's assume the name of our first virual environment will be called myenv.
+
+To create a Python virtual environment, simply execute the following in your command line:
+
+```bash
+virtualenv myenv
+```
+
+Executing the command above, should create a virtual environment for you. You can simply verify this by checking your current directory.
+
+To start using the newly created virtual environment, simply execute:
+
+```bash
+source myenv/bin/activate
+```
+
+Executing the above will activate the virtual environment you would like to start using.
+
+To exit from the current virtual environment, simply execute:
+
+```bash
+deactivate
+```
 
 
