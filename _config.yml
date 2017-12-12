@@ -15,3 +15,4 @@ exclude:
   - Gemfile
   - Gemfile.lock
 timezone: Australia/Sydney
+google_analytics: UA-111116852-1
