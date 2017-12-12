@@ -1,7 +1,8 @@
 ---
 layout: post
 title: The Virtual Environment
-category: Python
+date: 2017-12-12 10:50:00
+categories: Python
 ---
 
 # The Virtual Environment
