@@ -16,8 +16,10 @@
     {% if site.google_analytics and jekyll.environment == 'production' %}
        {% include analytics.html %}
     {% endif %}
+    <title>{{ page.title }} - {{ site.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
+    
+    {% seo %}
   </head>
   <body>
       <div id="header">
