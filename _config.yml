@@ -1,4 +1,4 @@
-title: "{ graeme_o }"
+title: "Graeme Ong"
 description: > # this means to ignore newlines until "baseurl:"
   It's not about how good you can code,
   it's about how good you can work with others to code...
@@ -18,3 +18,4 @@ timezone: Australia/Sydney
 google_analytics: UA-111116852-1
 gems:
   - jekyll-seo-tag
+  - jekyll-sitemap
