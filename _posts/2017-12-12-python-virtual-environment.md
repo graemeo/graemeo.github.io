@@ -3,6 +3,8 @@ layout: post
 title: The Virtual Environment
 date: 2017-12-12 10:50:00
 categories: Python
+description: A post which contains basic getting started instructions on Python virtual environment 
+keywords: python, virtualenv, python virtual environment, virtual environment
 ---
 
 # The Virtual Environment

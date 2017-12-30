@@ -1,5 +1,8 @@
 ---
 layout: default
+title: About Me
+description: A Sydney, Australia based Software / DevOps Engineer with applications development background
+keywords: blog, technology, technology blog, python, java, devops, software engineer, software, automation, cloud
 ---
 
 ## A little bit about me...

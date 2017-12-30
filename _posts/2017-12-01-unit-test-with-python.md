@@ -3,6 +3,8 @@ layout: post
 title: To Unit Test or Not to Unit Test
 date: 2017-12-01 22:20:00
 categories: Python
+description: Simple guide to get started with Python unit testing
+keywords: python, unittest, unit testing, test automation, python 2.7, python 2.6, tdd, test driven development
 ---
 
 # To Unit Test or Not to Unit Test
